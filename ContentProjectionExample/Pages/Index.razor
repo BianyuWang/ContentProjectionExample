@@ -1,0 +1,26 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+<p>
+Content Projection is the concept of generic component, 
+which allow you to design a component that defer the specification of one or more UI part to the user of that component. 
+In other word, you can handle the common logic and defer the specific logic to the user of that component. 
+Some examples where Content Projection useful are: a component that will make any child component/HTML tags to display right to left; 
+A tab container component that handles all the logic about tabs without knowing the tabs,
+the user of the tab container component will decide how many tabs are there.
+
+</p>
+
+<SingleSlotChild>
+    <span>Content to project</span>
+</SingleSlotChild>
+
+
+<MultipleSlotsChild>
+    <Slot1><span>Slot 1 content</span></Slot1>
+    <Slot2><span>Slot 2 content</span></Slot2>
+    
+    
+</MultipleSlotsChild>
