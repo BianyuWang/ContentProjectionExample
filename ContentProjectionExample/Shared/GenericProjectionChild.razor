@@ -1,0 +1,39 @@
+﻿@using ContentProjectionExample.models
+
+<h3>GenericProjectionChild</h3>
+
+
+@foreach (var animal in InputData)
+{
+    <div>
+        @if (animal is Cat cat)
+        {
+            @CatTemplate?.Invoke(cat)
+        }
+
+        @if (animal is Dog dog)
+        {
+            @DogTemplate?.Invoke(dog)
+        }
+
+        @if (animal is Bird bird)
+        {
+            @BirdTemplate?.Invoke(bird)
+        }
+    </div>
+}
+
+
+@code {
+     [Parameter]
+    public RenderFragment<Cat>? CatTemplate { get; set; }
+
+    [Parameter]
+    public RenderFragment<Dog>? DogTemplate { get; set; }
+
+    [Parameter]
+    public RenderFragment<Bird>? BirdTemplate { get; set; }
+
+    [Parameter]
+    public List<IAnimal> InputData { get; set; } = new();
+}

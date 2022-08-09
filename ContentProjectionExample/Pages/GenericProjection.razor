@@ -1,0 +1,27 @@
+﻿@using ContentProjectionExample.models
+@page "/GenericProjection"
+<h3>Generic Projection</h3>
+
+<GenericProjectionChild InputData="Animals" Context="OutputFromProjection">
+    <DogTemplate>
+        <div>My name is @OutputFromProjection.Name, I am a dog.</div>
+    </DogTemplate>
+    <CatTemplate>
+        <div>My name is @OutputFromProjection.Name, I am a cat.</div>
+    </CatTemplate>
+    <BirdTemplate>
+        <div>My name is @OutputFromProjection.Name, I am a bird.</div>
+    </BirdTemplate>
+</GenericProjectionChild>
+
+@code {
+    public List<IAnimal> Animals { get; set; } = new()
+    {
+        new Dog() { Name = "Doggy" },
+        new Cat() { Name = "Pussy" },
+        new Bird() { Name = "Birb" },
+        new Cat() { Name = "Kitty" },
+         new Cat() { Name = "Kitty2" },
+    };
+
+}
